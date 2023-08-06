@@ -1,0 +1,32 @@
+<html xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core_rt"
+	xmlns:liferay-ui="http://liferay.com/tld/ui"
+	xmlns:aui="http://liferay.com/tld/aui"
+	xmlns:liferay-faces="http://liferay.com/tld/faces"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+
+</h:head>
+<h:body>
+	<h2>letter status page</h2>
+	<h:form>
+	<div class="card">
+			<p:dataTable var="letter" value="#{LetterStatusController.letter}">
+
+				<p:column headerText="topic">
+					<h:outputText value="#{letter.topic}" />
+				</p:column>
+				
+				<p:column headerText="your letter status">
+				<h:outputText value="#{letter.signature}" />
+				</p:column>
+			</p:dataTable>
+		</div>
+		<p:commandButton value="back"
+			action="#{LetterStatusController.getBack()}" />
+	</h:form>
+</h:body>
+</html>

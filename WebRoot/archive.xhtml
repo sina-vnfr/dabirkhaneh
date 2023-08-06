@@ -1,0 +1,58 @@
+<html xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core_rt"
+	xmlns:liferay-ui="http://liferay.com/tld/ui"
+	xmlns:aui="http://liferay.com/tld/aui"
+	xmlns:liferay-faces="http://liferay.com/tld/faces"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+
+</h:head>
+<h:body>
+	<h2>archive page</h2>
+	<h:form id="archive">
+		<p:messages id="messages" showDetail="false" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+		<div class="card">
+			<p:dataTable id="checkboxDT" var="letter"
+				value="#{ArchiveController.letter}"
+				selection="#{ArchiveController.selectedLetter}"
+				rowKey="#{letter.id}" style="margin-bottom:0" paginator="true"
+				rows="5" selectionPageOnly="false" rowSelectMode="none">
+				<p:column selectionMode="multiple"
+					style="width:16px;text-align:center" />
+				<p:column headerText="sender">
+					<h:outputText value="#{letter.sender}" />
+				</p:column>
+
+				<p:column headerText="topic">
+					<h:outputText value="#{letter.topic}" />
+				</p:column>
+
+
+			</p:dataTable>
+			<p:commandButton value="save"
+				action="#{ArchiveController.saveArchive()}" update="archive"/>
+		</div>
+		<div class="card">
+			<p:dataTable var="letter" value="#{ArchiveController.archiveLetter}"
+				selection="">
+				<p:column headerText="sender">
+					<h:outputText value="#{letter.sender}" />
+				</p:column>
+
+				<p:column headerText="topic">
+					<h:outputText value="#{letter.topic}" />
+				</p:column>
+
+
+			</p:dataTable>
+		</div>
+
+		<p:commandButton value="back" action="#{ArchiveController.getBack()}" />
+	</h:form>
+</h:body>
+</html>

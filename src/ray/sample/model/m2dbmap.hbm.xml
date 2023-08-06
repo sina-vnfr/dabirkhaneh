@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="ray.sample.model.User" table="tbl_foo">
+		<id name="id" type="long" column="id">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="name"></property>
+		<property name="count"></property>
+	</class>
+	<class name="ray.sample.model.Letter" table="letter">
+		<id name="id" type="long" column="id">
+			<generator class="increment"></generator>
+		</id>
+		<property name="topic" column="topic"></property>
+		<property name="sender"  column="sender"></property>
+		<property name="receiver"  column="receiver"></property>
+		<property name="context"  column="context"></property>
+		<property name="signature"  column="signature"></property>
+		<property name="archive"  column="archive"></property>
+	</class>
+
+</hibernate-mapping>

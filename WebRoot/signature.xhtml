@@ -1,0 +1,36 @@
+<html xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core_rt"
+	xmlns:liferay-ui="http://liferay.com/tld/ui"
+	xmlns:aui="http://liferay.com/tld/aui"
+	xmlns:liferay-faces="http://liferay.com/tld/faces"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+    xmlns="http://www.w3.org/1999/xhtml">
+<h:head>
+
+</h:head>
+<h:body>
+	<h2>signature page</h2>
+	<h:form>
+		<div class="card">
+			<p:dataTable var="letter" value="#{SignatureController.letter}">
+				<p:column headerText="sender">
+					<h:outputText value="#{letter.sender}" />
+				</p:column>
+
+				<p:column headerText="topic">
+					<h:outputText value="#{letter.topic}" />
+				</p:column>
+				
+				<p:column headerText="link to see detail">
+					<p:commandLink action="#{SignatureController.checkLetter(letter.id)}" value="check letter"/>
+				</p:column>
+			</p:dataTable>
+		</div>
+		<p:commandButton value="back"
+			action="#{SignatureController.getBack()}" />
+	</h:form>
+</h:body>
+</html>

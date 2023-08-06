@@ -1,0 +1,65 @@
+<html xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core_rt"
+	xmlns:liferay-ui="http://liferay.com/tld/ui"
+	xmlns:aui="http://liferay.com/tld/aui"
+	xmlns:liferay-faces="http://liferay.com/tld/faces"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns="http://www.w3.org/1999/xhtml">
+<h:head>
+
+</h:head>
+<h:body>
+	<h2>write letter page</h2>
+
+	<h:form id="form">
+
+		<p:messages id="messages" showDetail="false" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+		<h:panelGrid columns="2" cellpadding="20">
+
+			<h:outputLabel for="multiple" value="select receivers:" />
+			<p:selectCheckboxMenu id="multiple" 
+				value="#{WriterLetterController.selectedEmployee}"
+				label="receivers:" filter="true" multiple="ture" updateLabel="true"
+				filterMatchMode="startsWith" panelStyle="width:250px">
+				<f:selectItems value="#{WriterLetterController.employee}" />
+			</p:selectCheckboxMenu>
+
+			<h:outputText id="display" value="select topic:" />
+			<p:inputText id="displayInput"
+				value="#{WriterLetterController.topic}"
+				disabled="#{WriterLetterController.getDisabledElement('displayInput')}" />
+
+
+		</h:panelGrid>
+		<h:panelGrid id="test" columns="1" cellpadding="20">
+			<p:inputTextarea id="inputTextarea" rows="10" cols="50"
+				autoResize="false" value="#{WriterLetterController.context}"
+				disabled="#{WriterLetterController.getDisabledElementInputText('inputTextarea')}" />
+
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="20">
+			<p:commandButton value="save" id="save"
+				action="#{WriterLetterController.dataSavedButten()}"
+				rendered="#{WriterLetterController.getRenderdElement('save')}" />
+
+			<p:commandButton value="accept" id="accept"
+				action="#{WriterLetterController.AcceptRejectButten('accept')}"
+				rendered="#{WriterLetterController.getRenderdSignatureElement('accept')}" />
+
+			<p:commandButton value="Reject" id="Reject"
+				action="#{WriterLetterController.AcceptRejectButten('Reject')}"
+				rendered="#{WriterLetterController.getRenderRejectSignatureElement('Reject')}" />
+
+			<p:commandButton value="back"
+				action="#{WriterLetterController.getBack()}" />
+
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>

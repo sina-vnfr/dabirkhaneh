@@ -1,0 +1,33 @@
+<html xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core_rt"
+	xmlns:liferay-ui="http://liferay.com/tld/ui"
+	xmlns:aui="http://liferay.com/tld/aui"
+	xmlns:liferay-faces="http://liferay.com/tld/faces"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+
+</h:head>
+<h:body>
+	<h:form>
+		<h2>main page</h2>
+		<p:commandButton value="write letter"
+			action="#{MainController.writeLetter()}" />
+
+		<p:commandButton value="signature"
+			action="#{MainController.signature()}" />
+
+		<p:commandButton value="your letter status"
+			action="#{MainController.yourLetterStatus()}" />
+
+		<p:commandButton value="archive letter"
+			action="#{MainController.archiveLetter()}" />
+
+		<p:commandButton value="back"
+			action="#{MainController.getBack()}" />
+
+	</h:form>
+</h:body>
+</html>
